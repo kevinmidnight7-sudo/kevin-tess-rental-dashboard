@@ -6,8 +6,8 @@ window.RENTAL_DATA = {
   incomes: { kevin: 1730.97, tess: 1620 },
   changes: [
     { type: "new", title: "Ten homes ranked", text: "The shortlist now keeps ten active options rather than stopping at five." },
-    { type: "photo", title: "Every card has an image", text: "Direct listing photos are used where available, with a live listing preview as backup." },
-    { type: "app", title: "Mobile app makeover", text: "New sorting, filters, saved homes, animated details and a full cost breakdown." }
+    { type: "photo", title: "Verified photos only", text: "Failed page screenshots have been removed. Cards without a verified property photo link directly to the listing gallery." },
+    { type: "app", title: "Mobile app makeover", text: "New sorting, filters, saved homes, editable settings and a full cost breakdown." }
   ],
   properties: [
     {
@@ -70,7 +70,7 @@ window.RENTAL_DATA = {
       epc: "D", councilBand: "A", parking: "Ask agent", garden: "Ask agent",
       tags: ["under1400"], label: "Best cheap backup", status: "Available",
       link: "https://www.rightmove.co.uk/properties/90946707",
-      image: "https://image.thum.io/get/width/900/crop/600/noanimate/https://www.rightmove.co.uk/properties/90946707",
+      image: "",
       summary: "Excellent monthly cost and low council tax, but parking remains the big unanswered question.",
       pros: ["£1,150 rent", "Council Tax Band A", "Close to station and town"],
       cons: ["Parking unconfirmed", "Garden unconfirmed", "EPC D"],
@@ -81,7 +81,7 @@ window.RENTAL_DATA = {
       epc: "C", councilBand: "B", parking: "One off-street space", garden: "Not stated",
       tags: ["under1400", "epcC"], label: "Best efficient flat", status: "Available",
       link: "https://www.zoopla.co.uk/to-rent/details/67695822/",
-      image: "https://image.thum.io/get/width/900/crop/600/noanimate/https://www.zoopla.co.uk/to-rent/details/67695822/",
+      image: "",
       summary: "Two double bedrooms, EPC C and Band B council tax make this financially tidy. The weak point is one confirmed car space.",
       pros: ["Two double bedrooms", "EPC C", "Band B", "Off-street parking"],
       cons: ["One confirmed space", "No garden mentioned"],
@@ -92,7 +92,7 @@ window.RENTAL_DATA = {
       epc: "TBC", councilBand: "TBC", parking: "Check with agent", garden: "Not stated",
       tags: ["under1400"], label: "Newer listing", status: "Available",
       link: "https://www.rightmove.co.uk/properties/91161741",
-      image: "https://image.thum.io/get/width/900/crop/600/noanimate/https://www.rightmove.co.uk/properties/91161741",
+      image: "",
       summary: "A newer two-bedroom apartment near the centre and station, but several practical details still need confirming.",
       pros: ["Two bedrooms", "Central access", "Within comfort range"],
       cons: ["Parking unclear", "No garden stated", "EPC and council tax unclear"],
@@ -103,7 +103,7 @@ window.RENTAL_DATA = {
       epc: "TBC", councilBand: "TBC", parking: "Check with agent", garden: "Check with agent",
       tags: [], label: "Proper house backup", status: "Available",
       link: "https://www.rightmove.co.uk/properties/91157490",
-      image: "https://image.thum.io/get/width/900/crop/600/noanimate/https://www.rightmove.co.uk/properties/91157490",
+      image: "",
       summary: "A proper terraced house with two double bedrooms and two reception rooms, but it uses the full stretch budget.",
       pros: ["Proper house", "Two double bedrooms", "Two reception rooms"],
       cons: ["£1,500 rent", "Parking and garden need confirmation", "Less room to save"],
@@ -114,7 +114,7 @@ window.RENTAL_DATA = {
       epc: "D", councilBand: "TBC", parking: "Ask agent", garden: "Communal garden",
       tags: ["garden", "under1400"], label: "Cheapest overall", status: "Available",
       link: "https://www.rightmove.co.uk/properties/90526110",
-      image: "https://image.thum.io/get/width/900/crop/600/noanimate/https://www.rightmove.co.uk/properties/90526110",
+      image: "",
       summary: "Excellent for saving and available now, though parking and equal bedroom quality need checking.",
       pros: ["£1,100 rent", "Communal garden", "Gas central heating", "Available now"],
       cons: ["Parking unclear", "Council tax needs confirming", "Bedroom sizes need checking"],
@@ -122,3 +122,9 @@ window.RENTAL_DATA = {
     }
   ]
 };
+
+/* App enhancements: keep this loader block when refreshing rental data. */
+(()=>{
+  const css=document.createElement('link');css.rel='stylesheet';css.href='enhancements.css?v=20260727';document.head.appendChild(css);
+  const script=document.createElement('script');script.src='enhancements.js?v=20260727';script.defer=true;document.head.appendChild(script);
+})();
