@@ -18,6 +18,12 @@ document.write('<script src="data/properties-1.js?v=20260729-1557"><\/script>');
 document.write('<script src="data/properties-2.js?v=20260729-1557"><\/script>');
 document.write('<script src="data/properties-3.js?v=20260729-1557"><\/script>');
 
+/* Keep the Guildford-address filter exact instead of matching every GU1x/GU2x postcode. */
+window.RENTAL_DATA.properties.forEach(property => {
+  property.tags = (property.tags || []).filter(tag => tag !== 'guildford');
+  if (String(property.area || '').startsWith('Guildford')) property.tags.push('guildford');
+});
+
 /* App enhancements: keep this loader block when refreshing rental data. */
 (()=>{
   const css=document.createElement('link');css.rel='stylesheet';css.href='enhancements.css?v=20260727';document.head.appendChild(css);
