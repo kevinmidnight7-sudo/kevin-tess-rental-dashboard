@@ -1,14 +1,14 @@
 window.RENTAL_DATA = {
   targetCount: 50,
-  updated: "2026-07-29",
-  checkedAt: "2026-07-29T15:57:00+01:00",
-  headline: "I have searched far and wide for a house for Tess & Kevin and as of 29 July 2026, here are my suggestions...",
-  recommendation: "The search radius has been corrected around Guildford. Sycamore Court is the strongest all-round value, Nugent Court is the most practical Guildford option, and the refurbished Charterhouse Road flat is the best premium Godalming choice. Chapel Street is included, but its explicit lack of parking pushes it down for a two-car household.",
+  updated: "2026-07-30",
+  checkedAt: "2026-07-30T08:03:00+01:00",
+  headline: "I have searched far and wide for a house for Tess & Kevin and as of 30 July 2026, here are my suggestions...",
+  recommendation: "Sycamore Court remains the strongest all-round fit, with Nugent Court the most practical Guildford option. Park Street has been added as a central bills-included backup, but its lack of parking keeps it below the stronger two-car choices. The active shortlist now contains 31 deduplicated homes.",
   incomes: { kevin: 1730.97, tess: 1620 },
   changes: [
-    { type: "new", title: "Twenty-five strong opportunities added", text: "Godalming, Guildford, Woking, Knaphill and Brookwood are now core search areas rather than afterthoughts." },
-    { type: "verified", title: "Exact listing pages checked", text: "Thirty active records survived the current direct-page and cross-portal availability audit." },
-    { type: "removed", title: "Five stale or unverified records removed", text: "Peabody Road, Lynchford Road, Station Approach, Holly Road and St Michaels Road were dropped rather than carried forward without a current supportable page." }
+    { type: "new", title: "Park Street added", text: "A verified £1,500 central Guildford two-bedroom with gas, electricity and water included has joined the shortlist; no parking keeps it as a backup rather than a top pick." },
+    { type: "verified", title: "Fresh portal sweep completed", text: "Current Godalming, Guildford and Woking search pages were inspected again on 30 July, with exact-page checks used for any new candidate." },
+    { type: "coverage", title: "Some portal pages remain partly inaccessible", text: "A small number of Rightmove and OnTheMarket detail pages returned cache misses, so those candidates were not added or marked verified." }
   ],
   properties: []
 };
@@ -17,6 +17,7 @@ window.RENTAL_DATA = {
 document.write('<script src="data/properties-1.js?v=20260729-1557"><\/script>');
 document.write('<script src="data/properties-2.js?v=20260729-1557"><\/script>');
 document.write('<script src="data/properties-3.js?v=20260729-1557"><\/script>');
+document.write('<script src="data/properties-4.js?v=20260730-0803"><\/script>');
 
 /* Keep the Guildford-address filter exact instead of matching every GU1x/GU2x postcode. */
 window.RENTAL_DATA.properties.forEach(property => {
