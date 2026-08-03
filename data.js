@@ -1,15 +1,15 @@
 window.RENTAL_DATA = {
   targetCount: 50,
-  updated: "2026-08-02",
-  checkedAt: "2026-08-02T08:18:00+01:00",
-  headline: "I have searched far and wide for a house for Tess & Kevin and as of 2 August 2026, here are my suggestions...",
-  recommendation: "Sycamore Court remains the strongest all-round fit. Broad Ha'penny is today's strongest new house-value option at £1,350 with allocated parking, visitor parking and communal grounds, while the newly verified £1,350 Tudor Way OpenRent flat offers two double bedrooms, EPC B and allocated parking. The shortlist now has 32 active records, with unverified or let-agreed discoveries rejected rather than used to pad the count.",
+  updated: "2026-08-03",
+  checkedAt: "2026-08-03T08:02:00+01:00",
+  headline: "I have searched far and wide for a house for Tess & Kevin and as of 3 August 2026, here are my suggestions...",
+  recommendation: "Two of the strongest Godalming options have just become materially better value. Sycamore Court is now £1,195 rather than £1,250 and remains the strongest all-round fit, while the refurbished Charterhouse Road apartment is now £1,400 rather than £1,500 with secure underground allocated parking, visitor parking and communal gardens. No weakly verified discovery has been added just to increase the count.",
   incomes: { kevin: 1730.97, tess: 1620 },
   changes: [
-    { type: "new", title: "Two useful verified homes added", text: "Broad Ha'penny in Farnham and a separate £1,350 Tudor Way OpenRent flat in Knaphill have joined the shortlist after exact-page checks." },
-    { type: "verified", title: "Godalming search surfaced a tempting let-agreed home", text: "Ockford Road at £1,450 looked exceptional with two allocated spaces, visitor parking, private patio and communal gardens, but its exact Rightmove page says LET AGREED, so it was correctly excluded." },
-    { type: "correction", title: "High Street Godalming record clarified", text: "The current exact listing at £1,400 is a two-double-bedroom apartment available 24 August; parking and garden remain unconfirmed, so it stays below better two-car options." },
-    { type: "coverage", title: "OnTheMarket GU2 coverage incomplete this run", text: "The mandatory saved GU2 search returned a cache miss, so this run does not claim complete OnTheMarket GU2 pagination coverage. Exact accessible listing pages and other live portal searches were still checked, and no blocked page was assumed active." }
+    { type: "price", title: "Sycamore Court reduced to £1,195", text: "The exact Rightmove page is live today at £1,195 pcm, available 14 August, with two double bedrooms, allocated off-road parking and additional on-street parking." },
+    { type: "price", title: "Charterhouse Road reduced to £1,400", text: "The exact Rightmove page is live today at £1,400 pcm, available 24 August, with EPC C, Band C council tax, secure underground allocated parking, visitor parking and maintained communal gardens." },
+    { type: "verified", title: "Godalming market rechecked", text: "Current Godalming portal results were re-read against exact pages. Let-agreed and over-budget results were rejected rather than added." },
+    { type: "coverage", title: "OnTheMarket GU2 saved search still inaccessible", text: "The mandatory exact GU2 filtered URL returned a cache miss this morning, so complete GU2 OnTheMarket pagination cannot honestly be claimed. Accessible live listing pages and other portal searches were still checked." }
   ],
   properties: []
 };
@@ -32,20 +32,36 @@ document.write('<script src="data/properties-6.js?v=20260802-0818"><\/script>');
   ]);
   window.RENTAL_DATA.properties = window.RENTAL_DATA.properties.filter(property => !excluded.has(property.duplicateKey));
 
-  const checkedAt = '2026-08-02T08:18:00+01:00';
-  const checkedKeys = new Set([
-    'sycamore-court-long-gore-godalming-gu7-1250',
-    'charterhouse-road-refurbished-apartment-godalming-gu7-1500',
-    'angel-court-high-street-godalming-gu7-1400',
-    'broad-hapenny-boundstone-farnham-gu10-1350',
-    'tudor-way-knaphill-openrent-gu21-1350'
-  ]);
-  window.RENTAL_DATA.properties.forEach(property => {
-    if (checkedKeys.has(property.duplicateKey)) property.verifiedAt = checkedAt;
-  });
+  const checkedAt = '2026-08-03T08:02:00+01:00';
 
-  const peperharow = window.RENTAL_DATA.properties.find(property => property.duplicateKey === 'peperharow-road-godalming-gu7-1450');
-  if (peperharow) peperharow.availabilityStatus = 'Current page remains live but contains conflicting timing: status says Now while key text says mid-December; confirm with agent before viewing';
+  const sycamore = window.RENTAL_DATA.properties.find(property => property.link === 'https://www.rightmove.co.uk/properties/90182370');
+  if (sycamore) {
+    sycamore.rent = 1195;
+    sycamore.availabilityStatus = 'Available from 14 August 2026; reduced to £1,195 pcm';
+    sycamore.parking = 'Allocated off-road space plus additional on-street parking';
+    sycamore.parkingConfidence = 1;
+    sycamore.councilBand = 'C';
+    sycamore.summary = 'Two double bedrooms, allocated off-road parking plus additional street parking and a newly reduced £1,195 rent make this the strongest all-round match.';
+    sycamore.pros = ['£1,195 rent','Two double bedrooms','Allocated off-road parking','Additional street parking','Close to Farncombe station'];
+    sycamore.verifiedAt = checkedAt;
+  }
+
+  const charterhouse = window.RENTAL_DATA.properties.find(property => property.link === 'https://www.rightmove.co.uk/properties/90655770');
+  if (charterhouse) {
+    charterhouse.rent = 1400;
+    charterhouse.availabilityStatus = 'Available from 24 August 2026; reduced to £1,400 pcm';
+    charterhouse.epc = 'C';
+    charterhouse.councilBand = 'C';
+    charterhouse.parking = 'Secure underground allocated space plus visitor parking';
+    charterhouse.parkingConfidence = 1;
+    charterhouse.garden = 'Maintained communal gardens';
+    charterhouse.outdoorConfidence = 0.95;
+    charterhouse.label = 'Best premium Godalming value';
+    charterhouse.summary = 'Recently refurbished with secure underground allocated parking, visitor parking and communal gardens; the reduction to £1,400 moves it into the comfort ceiling.';
+    charterhouse.pros = ['£1,400 reduced rent','Secure underground parking','Visitor parking','Communal gardens','EPC C','Council Tax Band C'];
+    charterhouse.cons = ['No pets'];
+    charterhouse.verifiedAt = checkedAt;
+  }
 
   const highStreet = window.RENTAL_DATA.properties.find(property => property.link === 'https://www.rightmove.co.uk/properties/90957459');
   if (highStreet) {
@@ -56,10 +72,6 @@ document.write('<script src="data/properties-6.js?v=20260802-0818"><\/script>');
     highStreet.parkingConfidence = 0.2;
     highStreet.garden = 'Not confirmed; riverside walks and Phillips Memorial Park nearby';
     highStreet.outdoorConfidence = 0.3;
-    highStreet.summary = 'Two double bedrooms in central Godalming at the comfort ceiling, with excellent transport access but unresolved parking.';
-    highStreet.pros = ['£1,400 rent','Two double bedrooms','Central Godalming','Guildford by rail in under 10 minutes'];
-    highStreet.cons = ['Parking unconfirmed','No dedicated garden confirmed','Council tax and EPC need confirming'];
-    highStreet.verifiedAt = checkedAt;
   }
 
   window.RENTAL_DATA.properties.sort((a, b) => (b.score - a.score) || ((a.distanceMiles ?? 999) - (b.distanceMiles ?? 999)) || (a.rent - b.rent));
