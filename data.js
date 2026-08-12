@@ -1,15 +1,14 @@
 window.RENTAL_DATA = {
   targetCount: 50,
-  updated: "2026-08-11",
-  checkedAt: "2026-08-11T08:01:27+01:00",
-  headline: "I have searched far and wide for a house for Tess & Kevin and as of 11 August 2026, here are my suggestions...",
-  recommendation: "Sycamore Court remains the strongest overall fit at £1,150 with two double bedrooms, allocated off-road parking plus additional street parking in Godalming/Farncombe. Charterhouse Road remains the strongest premium Godalming alternative at £1,400 with secure underground allocated parking, visitor parking and communal gardens. The shortlist is intentionally tighter today after two records failed the hard availability gate.",
+  updated: "2026-08-12",
+  checkedAt: "2026-08-12T08:04:05+01:00",
+  headline: "I have searched far and wide for a house for Tess & Kevin and as of 12 August 2026, here are my suggestions...",
+  recommendation: "Sycamore Court remains the strongest overall fit at £1,150 with two double bedrooms, allocated off-road parking plus additional street parking in Godalming/Farncombe. Charterhouse Road remains the strongest premium Godalming alternative at £1,400 with secure underground allocated parking, visitor parking and communal gardens. A newly verified £1,500 Woking GU22 apartment adds another two-double-bedroom option with parking, though it remains a weaker two-car fit than the Godalming leaders.",
   incomes: { kevin: 1730.97, tess: 1620 },
   changes: [
-    { type: "removed", title: "Godalming High Street £1,200 removed", text: "The exact OnTheMarket detail page now explicitly says the property is no longer on the market, so it has been removed immediately despite the old availability date still appearing lower on the page." },
-    { type: "removed", title: "Tudor Way £1,350 temporarily removed", text: "The exact OnTheMarket/OpenRent detail page could not be reliably reopened during today's run, so it has been excluded under the hard availability gate rather than carried forward on stale verification." },
-    { type: "verified", title: "Twenty-one active records rechecked", text: "The remaining active shortlist survived exact-detail-page checks today; ranks are regenerated contiguously and no unverified discovery-only result has been added." },
-    { type: "coverage", title: "OnTheMarket GU2 pagination remains unavailable", text: "The mandatory saved GU2 filtered search returned a cache miss again today. Individual accessible listing pages were checked directly, but this refresh does not claim complete OnTheMarket GU2 pagination." }
+    { type: "added", title: "New Woking GU22 apartment added at £1,500", text: "The exact Rightmove detail page is live today and confirms two double bedrooms, parking, Council Tax Band C and immediate availability. It is added as a stretch-budget Woking option; the listing does not confirm a second parking space or outdoor space." },
+    { type: "verified", title: "Twenty-two active records passed today's hard gate", text: "Every retained active record had its exact detail page reopened during this run. Search-result-only candidates, 410/generic redirects and let-agreed pages were not added." },
+    { type: "coverage", title: "OnTheMarket GU2 pagination remains unavailable", text: "The mandatory saved GU2 filtered search returned an internal/cache error again today. Individual accessible listing pages were checked directly, but this refresh does not claim complete OnTheMarket GU2 pagination." }
   ],
   properties: []
 };
@@ -24,6 +23,7 @@ document.write('<script src="data/properties-6.js?v=20260802-0818"><\/script>');
 document.write('<script src="data/properties-7.js?v=20260805-0805"><\/script>');
 document.write('<script src="data/properties-8.js?v=20260807-0818"><\/script>');
 document.write('<script src="data/properties-9.js?v=20260810-0809"><\/script>');
+document.write('<script src="data/properties-10.js?v=20260812-0804"><\/script>');
 
 /* Current-run hard availability/price gate. Old chunk records stay historical but do not enter the active dashboard. */
 {
@@ -32,7 +32,7 @@ document.write('<script src="data/properties-9.js?v=20260810-0809"><\/script>');
   ]);
   window.RENTAL_DATA.properties = window.RENTAL_DATA.properties.filter(property => !excluded.has(property.duplicateKey));
 
-  const checkedAt = '2026-08-11T08:01:27+01:00';
+  const checkedAt = '2026-08-12T08:04:05+01:00';
   const verifiedLinks = new Set([
     'https://www.rightmove.co.uk/properties/90182370',
     'https://www.rightmove.co.uk/properties/90655770',
@@ -54,14 +54,15 @@ document.write('<script src="data/properties-9.js?v=20260810-0809"><\/script>');
     'https://www.onthemarket.com/details/19831474/',
     'https://www.rightmove.co.uk/properties/174312392',
     'https://www.rightmove.co.uk/properties/173860292',
-    'https://www.rightmove.co.uk/properties/172823885'
+    'https://www.rightmove.co.uk/properties/172823885',
+    'https://www.rightmove.co.uk/properties/174176489'
   ]);
   window.RENTAL_DATA.properties.forEach(property => { if (verifiedLinks.has(property.link)) property.verifiedAt = checkedAt; });
 
   const sycamore = window.RENTAL_DATA.properties.find(property => property.link === 'https://www.rightmove.co.uk/properties/90182370');
   if (sycamore) {
     sycamore.rent = 1150;
-    sycamore.availabilityStatus = 'Available from 14 August 2026; exact detail page live 11 August';
+    sycamore.availabilityStatus = 'Available from 14 August 2026; exact detail page live 12 August';
     sycamore.parking = 'Allocated off-road space plus additional on-street parking';
     sycamore.parkingConfidence = 1;
     sycamore.councilBand = 'C';
@@ -72,7 +73,7 @@ document.write('<script src="data/properties-9.js?v=20260810-0809"><\/script>');
   const charterhouse = window.RENTAL_DATA.properties.find(property => property.link === 'https://www.rightmove.co.uk/properties/90655770');
   if (charterhouse) {
     charterhouse.rent = 1400;
-    charterhouse.availabilityStatus = 'Available from 24 August 2026; exact detail page live 11 August';
+    charterhouse.availabilityStatus = 'Available from 24 August 2026; exact detail page live 12 August';
     charterhouse.epc = 'C'; charterhouse.councilBand = 'C';
     charterhouse.parking = 'Secure underground allocated space plus visitor parking'; charterhouse.parkingConfidence = 1;
     charterhouse.garden = 'Maintained communal gardens'; charterhouse.outdoorConfidence = 0.95;
@@ -85,7 +86,7 @@ document.write('<script src="data/properties-9.js?v=20260810-0809"><\/script>');
   const bakehouse = window.RENTAL_DATA.properties.find(property => property.link === 'https://www.rightmove.co.uk/properties/90946707');
   if (bakehouse) {
     bakehouse.rent = 1100;
-    bakehouse.availabilityStatus = 'Available now; exact detail page live 11 August';
+    bakehouse.availabilityStatus = 'Available now; exact detail page live 12 August';
     bakehouse.councilBand = 'A'; bakehouse.epc = 'D';
     bakehouse.summary = 'Very low £1,100 rent and Band A council tax keep this a strong savings-led backup, though parking remains unconfirmed.';
     bakehouse.pros = ['£1,100 rent','Council Tax Band A','Close to station and town','Available now'];
