@@ -1,16 +1,14 @@
 window.RENTAL_DATA = {
   targetCount: 50,
-  updated: "2026-08-15",
-  checkedAt: "2026-08-15T08:18:00+01:00",
-  headline: "I have searched far and wide for a house for Tess & Kevin and as of 15 August 2026, here are my suggestions...",
-  recommendation: "Sycamore Court remains the strongest overall fit at £1,195 with two double bedrooms, allocated off-road parking plus additional street parking in Godalming/Farncombe. Charterhouse Road remains the strongest premium Godalming alternative at £1,400 with secure underground allocated parking, visitor parking and communal gardens. Today's strongest new core-area option is a £1,500 ground-floor Godalming apartment with two double bedrooms and a private enclosed patio garden, while Moore Close in Tongham adds a strong £1,250 value option with communal gardens and parking.",
+  updated: "2026-08-16",
+  checkedAt: "2026-08-16T08:00:08+01:00",
+  headline: "I have searched far and wide for a house for Tess & Kevin and as of 16 August 2026, here are my suggestions...",
+  recommendation: "Sycamore Court remains the strongest overall fit at £1,195 with two double bedrooms, allocated off-road parking plus additional street parking in Godalming/Farncombe. Charterhouse Road remains the strongest premium Godalming alternative at £1,400 with secure underground allocated parking, visitor parking and communal gardens. Ilmdeen Court in Farnborough is today's verified addition at £1,300 with EPC B and one allocated parking space, but it ranks below the core Godalming/Farncombe options because it is farther from Guildford and no outdoor space is confirmed.",
   incomes: { kevin: 1730.97, tess: 1620 },
   changes: [
-    { type: "added", title: "Godalming garden apartment added at £1,500", text: "The exact Rightmove detail page is live today and confirms two double bedrooms, EPC C, Council Tax Band D, residents permit parking and a private enclosed patio garden. It is a core-area option but sits at the stretch ceiling and does not provide two dedicated parking spaces." },
-    { type: "added", title: "Moore Close, Tongham added at £1,250", text: "The direct Bridges detail page is live today and confirms a two-bedroom maisonette, EPC C, Council Tax Band B, communal gardens, parking and immediate availability. Parking allocation and the number of spaces are not stated." },
-    { type: "price", title: "Broad Ha'penny reduced to £1,295", text: "Today's exact Rightmove page shows £1,295 pcm and immediate availability for the two-bedroom terraced house, improving its value versus the previously stored rent." },
-    { type: "coverage", title: "OnTheMarket filtered-search coverage remains incomplete", text: "The mandatory saved GU2 filtered search again returned an internal error. Equivalent OnTheMarket area-filter URLs could not be directly traversed in this run, although accessible OnTheMarket detail pages and search results were checked. OpenRent discovery was also limited, so this refresh does not claim complete pagination across those sources." },
-    { type: "verified", title: "Sixteen active records passed today's hard gate", text: "Every retained active record had its exact detail page reopened during this run, and the two additions were verified on exact detail pages before being added. The active total is intentionally below 50 rather than padded with stale or weakly verified records." }
+    { type: "added", title: "Ilmdeen Court, Farnborough added at £1,300", text: "The exact OnTheMarket detail page is live today, still accepts viewing requests, and confirms two double bedrooms, EPC B, Council Tax Band C, a long-term let and one allocated parking bay. No outdoor space is stated, and the page still shows an older 1 May availability date, so it is ranked as a backup rather than a core recommendation." },
+    { type: "coverage", title: "OnTheMarket GU2 filtered-search coverage remains incomplete", text: "The mandatory saved GU2 filtered search again returned an internal error. Accessible OnTheMarket detail pages and area results were checked, but full GU2 pagination could not be guaranteed. Current discovery also surfaced several portal results whose exact detail pages returned cache misses or gone responses, and those properties were not added." },
+    { type: "verified", title: "Seventeen active records passed today's hard gate", text: "Every retained active record had its exact detail page reopened during this run. No retained listing surfaced a let-agreed/no-longer-available flag. The active total is intentionally below 50 rather than padded with stale or weakly verified records." }
   ],
   properties: []
 };
@@ -29,6 +27,7 @@ document.write('<script src="data/properties-10.js?v=20260812-0804"><\/script>')
 document.write('<script src="data/properties-11.js?v=20260813-0755"><\/script>');
 document.write('<script src="data/properties-12.js?v=20260814-0807"><\/script>');
 document.write('<script src="data/properties-13.js?v=20260815-0818"><\/script>');
+document.write('<script src="data/properties-14.js?v=20260816-0800"><\/script>');
 
 /* Current-run hard availability/price gate. Old chunk records stay historical but do not enter the active dashboard. */
 {
@@ -51,7 +50,7 @@ document.write('<script src="data/properties-13.js?v=20260815-0818"><\/script>')
   ]);
   window.RENTAL_DATA.properties = window.RENTAL_DATA.properties.filter(property => !failedOrUnavailableLinks.has(property.link));
 
-  const checkedAt = '2026-08-15T08:18:00+01:00';
+  const checkedAt = '2026-08-16T08:00:08+01:00';
   const verifiedLinks = new Set([
     'https://www.rightmove.co.uk/properties/90182370',
     'https://www.rightmove.co.uk/properties/90655770',
@@ -68,14 +67,15 @@ document.write('<script src="data/properties-13.js?v=20260815-0818"><\/script>')
     'https://www.rightmove.co.uk/properties/90015357',
     'https://www.rightmove.co.uk/properties/172133981',
     'https://www.rightmove.co.uk/properties/87792279',
-    'https://www.bridges.co.uk/property/two-bedroom-maisonette-situated-in-a-quiet-cul-de-sac-location/'
+    'https://www.bridges.co.uk/property/two-bedroom-maisonette-situated-in-a-quiet-cul-de-sac-location/',
+    'https://www.onthemarket.com/details/19171145/'
   ]);
   window.RENTAL_DATA.properties.forEach(property => { if (verifiedLinks.has(property.link)) property.verifiedAt = checkedAt; });
 
   const sycamore = window.RENTAL_DATA.properties.find(property => property.link === 'https://www.rightmove.co.uk/properties/90182370');
   if (sycamore) {
     sycamore.rent = 1195;
-    sycamore.availabilityStatus = 'Available from 14 August 2026; exact detail page live 15 August';
+    sycamore.availabilityStatus = 'Available from 14 August 2026; exact detail page live 16 August';
     sycamore.parking = 'Allocated off-road space plus additional on-street parking';
     sycamore.parkingConfidence = 1;
     sycamore.councilBand = 'C';
@@ -86,7 +86,7 @@ document.write('<script src="data/properties-13.js?v=20260815-0818"><\/script>')
   const charterhouse = window.RENTAL_DATA.properties.find(property => property.link === 'https://www.rightmove.co.uk/properties/90655770');
   if (charterhouse) {
     charterhouse.rent = 1400;
-    charterhouse.availabilityStatus = 'Available from 24 August 2026; exact detail page live 15 August';
+    charterhouse.availabilityStatus = 'Available from 24 August 2026; exact detail page live 16 August';
     charterhouse.epc = 'C'; charterhouse.councilBand = 'C';
     charterhouse.parking = 'Secure underground allocated space plus visitor parking'; charterhouse.parkingConfidence = 1;
     charterhouse.garden = 'Maintained communal gardens'; charterhouse.outdoorConfidence = 0.95;
@@ -99,7 +99,7 @@ document.write('<script src="data/properties-13.js?v=20260815-0818"><\/script>')
   const bakehouse = window.RENTAL_DATA.properties.find(property => property.link === 'https://www.rightmove.co.uk/properties/90946707');
   if (bakehouse) {
     bakehouse.rent = 1100;
-    bakehouse.availabilityStatus = 'Available now; exact detail page live 15 August';
+    bakehouse.availabilityStatus = 'Available now; exact detail page live 16 August';
     bakehouse.councilBand = 'A'; bakehouse.epc = 'D';
     bakehouse.summary = 'Very low £1,100 rent and Band A council tax keep this a strong savings-led backup, though parking remains unconfirmed.';
     bakehouse.pros = ['£1,100 rent','Council Tax Band A','Close to station and town','Available now'];
@@ -108,7 +108,7 @@ document.write('<script src="data/properties-13.js?v=20260815-0818"><\/script>')
   const brandHouse = window.RENTAL_DATA.properties.find(property => property.link === 'https://www.rightmove.co.uk/properties/90015357');
   if (brandHouse) {
     brandHouse.rent = 1350;
-    brandHouse.availabilityStatus = 'Available now; exact detail page live 15 August';
+    brandHouse.availabilityStatus = 'Available now; exact detail page live 16 August';
     brandHouse.councilBand = 'C';
     brandHouse.parking = 'One allocated parking space'; brandHouse.parkingConfidence = 1;
     brandHouse.garden = 'Private balcony overlooking a communal first-floor garden'; brandHouse.outdoorConfidence = 1;
@@ -117,7 +117,7 @@ document.write('<script src="data/properties-13.js?v=20260815-0818"><\/script>')
   const broadHaPenny = window.RENTAL_DATA.properties.find(property => property.link === 'https://www.rightmove.co.uk/properties/90921210');
   if (broadHaPenny) {
     broadHaPenny.rent = 1295;
-    broadHaPenny.availabilityStatus = 'Available now; exact detail page live 15 August';
+    broadHaPenny.availabilityStatus = 'Available now; exact detail page live 16 August';
     broadHaPenny.summary = 'A proper two-bedroom terraced house at a reduced £1,295 rent, with parking and a practical Farnham/Boundstone location.';
     broadHaPenny.pros = ['£1,295 rent','Two-bedroom terraced house','Available now','Parking','Below comfortable rent ceiling'];
   }
