@@ -1,16 +1,17 @@
 window.RENTAL_DATA = {
   targetCount: 50,
-  updated: "2026-08-19",
-  checkedAt: "2026-08-19T07:50:06+01:00",
-  headline: "I have searched far and wide for a house for Tess & Kevin and as of 19 August 2026, here are my suggestions...",
-  recommendation: "Sycamore Court remains the strongest overall fit at £1,150 with two double bedrooms, allocated off-road parking and additional street parking. Broad Ha'penny remains a strong value house option at £1,295, while East Street in Farnham remains one of the more practical two-car backups with off-street parking plus a private garage, though it sits at the £1,500 stretch ceiling.",
+  updated: "2026-08-20",
+  checkedAt: "2026-08-20T08:07:50+01:00",
+  headline: "I have searched far and wide for a house for Tess & Kevin and as of 20 August 2026, here are my suggestions...",
+  recommendation: "Sycamore Court remains the strongest overall fit at £1,150 with two double bedrooms, allocated off-road parking and additional street parking. East Street in Farnham remains a practical two-car backup with off-street parking plus a private garage, while Gloster Close in Ash Vale offers two double bedrooms, allocated parking and a private garden. Today's list is deliberately short because multiple mandatory portal/detail pages failed the exact-page availability gate.",
   incomes: { kevin: 1730.97, tess: 1620 },
   changes: [
-    { type: "removed", title: "Charterhouse Road refurbished apartment removed as let agreed", text: "The exact Rightmove detail page opened successfully on 19 August and now explicitly says LET AGREED, so the £1,400 refurbished Godalming apartment was removed immediately under the hard availability gate." },
-    { type: "removed", title: "Bakehouse Mews removed as let agreed", text: "The exact Rightmove detail page opened successfully on 19 August and now explicitly says LET AGREED, so the £1,100 Aldershot maisonette was removed immediately under the hard availability gate." },
-    { type: "rejected", title: "No weakly verified replacements added", text: "Several current-looking search results surfaced across the target areas, including Godalming/Farncombe, Woking/Knaphill, Guildford and Farnborough, but exact detail pages either showed let agreed/gone status or could not be reliably reopened. They were not added from snippets alone." },
-    { type: "coverage", title: "OnTheMarket GU2 filtered-search coverage remains incomplete", text: "The mandatory saved GU2 filtered URL again returned an internal error on 19 August, so complete OnTheMarket GU2 pagination could not be guaranteed. Portal discovery was also uneven on some exact pages, so this run does not claim comprehensive coverage where access failed." },
-    { type: "verified", title: "Fourteen active records passed today's hard gate", text: "Every retained active record had its exact detail URL opened during this run. The active total is intentionally below 50 rather than padded with stale, unavailable or weakly verified listings." }
+    { type: "removed", title: "Eleven previously active records removed under the hard gate", text: "On 20 August, eleven properties retained on 19 August could not have their exact detail pages reliably reopened. Rightmove IDs 88307421, 89655507, 89460432, 90921210, 174312392, 172823885, 90015357, 87792279, 175035293 and 174029021, plus OnTheMarket detail 19900076, therefore do not remain active on stale verification." },
+    { type: "verified", title: "Sycamore Court remains live at £1,150", text: "The exact Rightmove page opened successfully on 20 August and still shows £1,150 pcm, two double bedrooms, allocated off-road parking plus additional on-street parking, Council Tax Band C and availability from 14 August 2026." },
+    { type: "verified", title: "East Street and Gloster Close remain live", text: "East Street, Farnham remains live at £1,500 with two double bedrooms, off-street parking, a private garage and communal gardens. Gloster Close, Ash Vale remains live at £1,495 with two double bedrooms, allocated parking and a garden, available 11 September 2026." },
+    { type: "rejected", title: "Fresh-looking results were not promoted without exact-page checks", text: "Current discovery surfaced candidates including Alexandra Road in Farnborough, Blackheath Lane near Guildford, Knaphill listings and Moore Close in Tongham, but their exact detail pages could not be reliably reopened during this run. They were not added from snippets or category pages alone." },
+    { type: "coverage", title: "Mandatory source coverage is incomplete today", text: "The saved OnTheMarket GU2 filtered URL again failed during the 20 August run, and multiple Rightmove, Zoopla, OnTheMarket and direct-agent detail pages returned cache-miss/internal errors. Complete pagination and exact-page verification across every mandatory area/source could therefore not be guaranteed, and this run does not claim a comprehensive sweep." },
+    { type: "verified", title: "Three active records passed today's hard gate", text: "Every retained active record had its exact detail URL opened successfully during this run. The active total is intentionally below 50 rather than padded with stale, unavailable or weakly verified listings." }
   ],
   properties: []
 };
@@ -35,20 +36,9 @@ document.write('<script src="data/properties-16.js?v=20260818-0809"><\/script>')
 
 /* Current-run hard availability gate: only exact pages successfully reopened this run remain active. */
 {
-  const checkedAt = '2026-08-19T07:50:06+01:00';
+  const checkedAt = '2026-08-20T08:07:50+01:00';
   const verifiedLinks = new Set([
     'https://www.rightmove.co.uk/properties/90182370',
-    'https://www.rightmove.co.uk/properties/88307421',
-    'https://www.rightmove.co.uk/properties/89655507',
-    'https://www.onthemarket.com/details/19900076/',
-    'https://www.rightmove.co.uk/properties/89460432',
-    'https://www.rightmove.co.uk/properties/90921210',
-    'https://www.rightmove.co.uk/properties/174312392',
-    'https://www.rightmove.co.uk/properties/172823885',
-    'https://www.rightmove.co.uk/properties/90015357',
-    'https://www.rightmove.co.uk/properties/87792279',
-    'https://www.rightmove.co.uk/properties/175035293',
-    'https://www.rightmove.co.uk/properties/174029021',
     'https://www.rightmove.co.uk/properties/91025910',
     'https://www.rightmove.co.uk/properties/89608194'
   ]);
@@ -58,7 +48,7 @@ document.write('<script src="data/properties-16.js?v=20260818-0809"><\/script>')
   const sycamore = window.RENTAL_DATA.properties.find(property => property.link === 'https://www.rightmove.co.uk/properties/90182370');
   if (sycamore) {
     sycamore.rent = 1150;
-    sycamore.availabilityStatus = 'Available now; exact detail page live 19 August 2026';
+    sycamore.availabilityStatus = 'Available from 14 August 2026; exact detail page live 20 August 2026';
     sycamore.parking = 'Allocated off-road space plus additional on-street parking';
     sycamore.parkingConfidence = 1;
     sycamore.councilBand = 'C';
@@ -66,21 +56,26 @@ document.write('<script src="data/properties-16.js?v=20260818-0809"><\/script>')
     sycamore.pros = ['£1,150 rent','Two double bedrooms','Allocated off-road parking','Additional street parking','Close to Farncombe station','Available now'];
   }
 
-  const broadHaPenny = window.RENTAL_DATA.properties.find(property => property.link === 'https://www.rightmove.co.uk/properties/90921210');
-  if (broadHaPenny) {
-    broadHaPenny.rent = 1295;
-    broadHaPenny.availabilityStatus = 'Exact detail page live 19 August 2026';
-    broadHaPenny.summary = 'A proper two-bedroom terraced house at £1,295 rent, with parking and a practical Farnham/Boundstone location.';
-    broadHaPenny.pros = ['£1,295 rent','Two-bedroom terraced house','Parking','Below comfortable rent ceiling'];
+  const eastStreet = window.RENTAL_DATA.properties.find(property => property.link === 'https://www.rightmove.co.uk/properties/91025910');
+  if (eastStreet) {
+    eastStreet.rent = 1500;
+    eastStreet.availabilityStatus = 'Available from 17 September 2026; exact detail page live 20 August 2026';
+    eastStreet.councilBand = 'C';
+    eastStreet.parking = 'Off-street parking plus private garage';
+    eastStreet.parkingConfidence = 1;
+    eastStreet.garden = 'Communal gardens';
+    eastStreet.outdoorConfidence = 1;
   }
 
-  const brandHouse = window.RENTAL_DATA.properties.find(property => property.link === 'https://www.rightmove.co.uk/properties/90015357');
-  if (brandHouse) {
-    brandHouse.rent = 1350;
-    brandHouse.availabilityStatus = 'Exact detail page live 19 August 2026';
-    brandHouse.councilBand = 'C';
-    brandHouse.parking = 'One allocated parking space'; brandHouse.parkingConfidence = 1;
-    brandHouse.garden = 'Private balcony overlooking a communal first-floor garden'; brandHouse.outdoorConfidence = 1;
+  const glosterClose = window.RENTAL_DATA.properties.find(property => property.link === 'https://www.rightmove.co.uk/properties/89608194');
+  if (glosterClose) {
+    glosterClose.rent = 1495;
+    glosterClose.availabilityStatus = 'Available 11 September 2026; exact detail page live 20 August 2026';
+    glosterClose.councilBand = 'D';
+    glosterClose.parking = 'Allocated parking';
+    glosterClose.parkingConfidence = 1;
+    glosterClose.garden = 'Private garden accessed from the lounge/diner';
+    glosterClose.outdoorConfidence = 1;
   }
 
   window.RENTAL_DATA.properties.sort((a, b) => (b.score - a.score) || ((a.distanceMiles ?? 999) - (b.distanceMiles ?? 999)) || (a.rent - b.rent));
