@@ -1,17 +1,18 @@
 window.RENTAL_DATA = {
   targetCount: 50,
-  updated: "2026-08-22",
-  checkedAt: "2026-08-22T08:08:58+01:00",
-  headline: "I have searched far and wide for a house for Tess & Kevin and as of 22 August 2026, here are my suggestions...",
-  recommendation: "Sycamore Court is restored as the strongest overall fit after its exact Zoopla page opened cleanly today at £1,150 pcm, available immediately, with two double bedrooms, allocated off-road parking and additional on-street parking. A new £1,500 Charterhouse Road ground-floor apartment is also added because its exact page confirms a private south-facing patio, communal gardens and a private garage. East Street in Farnham remains a useful two-car backup at £1,500 with off-street parking and a private garage.",
+  updated: "2026-08-23",
+  checkedAt: "2026-08-23T08:04:27+01:00",
+  headline: "I have searched far and wide for a house for Tess & Kevin and as of 23 August 2026, here are my suggestions...",
+  recommendation: "Sycamore Court remains the strongest overall fit at £1,150 pcm after its exact Zoopla page reopened cleanly today, with two double bedrooms, allocated off-road parking and additional on-street parking. Charterhouse Road remains the strongest premium Godalming option at £1,500 with a private south-facing patio, communal gardens and a private garage. Weyside on Catteshall Lane is a newly added £1,350 core-area value option with off-street parking, while East Street in Farnham remains a useful two-car backup at £1,500 with off-street parking and a private garage.",
   incomes: { kevin: 1730.97, tess: 1620 },
   changes: [
-    { type: "added", title: "Sycamore Court restored at £1,150", text: "On 22 August the exact Zoopla detail page opened successfully and shows £1,150 pcm, two double bedrooms, EPC C, Council Tax Band C, immediate availability, an allocated off-road parking space and additional on-street parking. This supersedes yesterday's temporary exclusion caused by conflicting stale direct-agent pricing." },
-    { type: "added", title: "New Charterhouse Road option added at £1,500", text: "A newly listed Dean Court ground-floor apartment on Charterhouse Road passed the exact-page gate on 22 August. It has two bedrooms, a private south-facing patio opening to communal gardens, a private single garage, EPC E and availability from 29 August 2026." },
-    { type: "verified", title: "East Street remains live at £1,500", text: "The exact Rightmove detail page opened successfully again on 22 August and still shows £1,500 pcm, two double bedrooms, off-street parking, a private garage, communal gardens, Council Tax Band C and availability from 17 September 2026." },
-    { type: "rejected", title: "Let-agreed and weakly verified results remain excluded", text: "Ockford Road in Godalming surfaced during discovery at £1,450 with two allocated spaces, but its exact OnTheMarket page states Let agreed, so it was rejected. Other result-page-only candidates were not promoted without a successful exact-detail check." },
-    { type: "coverage", title: "Mandatory source coverage is incomplete today", text: "The saved OnTheMarket GU2 filtered URL again failed with a cache-miss/internal error on 22 August. Search visibility was also uneven across OpenRent and some portal/direct-agent pages, so full pagination across every mandatory source and area could not be guaranteed and this run does not claim a comprehensive sweep." },
-    { type: "verified", title: "Three active records passed today's hard gate", text: "The active total is intentionally three rather than padded with stale, unavailable or weakly verified listings. Ranks are contiguous and the loaded total matches this changes feed." }
+    { type: "added", title: "Weyside, Catteshall Lane added at £1,350", text: "The exact Zoopla detail page was verified on 23 August and confirms a two-bedroom top-floor apartment in Godalming with off-street parking, EPC C, Council Tax Band D and availability from 25 September 2026. Bedroom two is described as a single, no outdoor space is confirmed and the number of parking spaces is unspecified, so it is scored conservatively." },
+    { type: "verified", title: "Sycamore Court remains live at £1,150", text: "The exact Zoopla detail page reopened successfully on 23 August and still shows £1,150 pcm, two double bedrooms, EPC C, Council Tax Band C, immediate availability, an allocated off-road parking space and additional on-street parking." },
+    { type: "verified", title: "Charterhouse Road remains live at £1,500", text: "The exact Zoopla detail page reopened successfully on 23 August and still shows £1,500 pcm, two bedrooms, a private south-facing patio, communal gardens, a private single garage, EPC E and availability from 29 August 2026." },
+    { type: "verified", title: "East Street remains live at £1,500", text: "The exact Rightmove detail page reopened successfully on 23 August and still shows £1,500 pcm, two double bedrooms, off-street parking, a private garage, communal gardens, Council Tax Band C and availability from 17 September 2026." },
+    { type: "rejected", title: "Search-result-only and failed exact-page candidates remain excluded", text: "Fresh results were discovered across the required areas, but records were not promoted when the exact listing page could not be reliably reopened or when the live detail page conflicted with discovery data. A Farncombe Street result at £1,300, for example, surfaced in current searches but its exact detail fetch failed during this run." },
+    { type: "coverage", title: "Mandatory source coverage is incomplete today", text: "The saved OnTheMarket GU2 filtered URL again failed with a cache-miss/internal error on 23 August. Search visibility and exact-page access were also uneven across some OpenRent, Rightmove, Zoopla, OnTheMarket and direct-agent results, so full pagination across every mandatory source and area could not be guaranteed and this run does not claim a comprehensive sweep." },
+    { type: "verified", title: "Four active records passed today's hard gate", text: "The active total is intentionally four rather than padded with stale, unavailable or weakly verified listings. Ranks are contiguous, duplicate keys are unique and the loaded total matches this changes feed." }
   ],
   properties: []
 };
@@ -34,14 +35,16 @@ document.write('<script src="data/properties-14.js?v=20260816-0800"><\/script>')
 document.write('<script src="data/properties-15.js?v=20260817-0851"><\/script>');
 document.write('<script src="data/properties-16.js?v=20260818-0809"><\/script>');
 document.write('<script src="data/properties-17.js?v=20260822-0808"><\/script>');
+document.write('<script src="data/properties-18.js?v=20260823-0804"><\/script>');
 
 /* Current-run hard availability gate: only exact pages successfully reopened this run remain active. */
 {
-  const checkedAt = '2026-08-22T08:08:58+01:00';
+  const checkedAt = '2026-08-23T08:04:27+01:00';
   const verifiedNames = new Set([
     'Sycamore Court, Long Gore',
     'East Street',
-    'Charterhouse Road — Dean Court'
+    'Charterhouse Road — Dean Court',
+    'Weyside, Catteshall Lane'
   ]);
   window.RENTAL_DATA.properties = window.RENTAL_DATA.properties.filter(property => verifiedNames.has(property.name));
   window.RENTAL_DATA.properties.forEach(property => { property.verifiedAt = checkedAt; });
@@ -54,7 +57,7 @@ document.write('<script src="data/properties-17.js?v=20260822-0808"><\/script>')
     sycamore.sourceType = 'portal';
     sycamore.link = 'https://www.zoopla.co.uk/to-rent/details/67546637/';
     sycamore.status = 'Available';
-    sycamore.availabilityStatus = 'Available immediately; exact Zoopla detail page live 22 August 2026';
+    sycamore.availabilityStatus = 'Available immediately; exact Zoopla detail page live 23 August 2026';
     sycamore.duplicateKey = 'sycamore-court-long-gore-godalming-gu7-1150';
     sycamore.epc = 'C';
     sycamore.councilBand = 'C';
@@ -70,13 +73,25 @@ document.write('<script src="data/properties-17.js?v=20260822-0808"><\/script>')
   if (eastStreet) {
     eastStreet.rent = 1500;
     eastStreet.status = 'Available';
-    eastStreet.availabilityStatus = 'Available from 17 September 2026; exact detail page live 22 August 2026';
+    eastStreet.availabilityStatus = 'Available from 17 September 2026; exact Rightmove detail page live 23 August 2026';
     eastStreet.councilBand = 'C';
     eastStreet.parking = 'Off-street parking plus private garage';
     eastStreet.parkingConfidence = 1;
     eastStreet.garden = 'Communal gardens';
     eastStreet.outdoorConfidence = 1;
     eastStreet.summary = 'Two double bedrooms, off-street parking plus a private garage and communal gardens make this a strong two-car backup.';
+  }
+
+  const charterhouse = window.RENTAL_DATA.properties.find(property => property.name === 'Charterhouse Road — Dean Court');
+  if (charterhouse) {
+    charterhouse.status = 'Available';
+    charterhouse.availabilityStatus = 'Available from 29 August 2026; exact Zoopla detail page live 23 August 2026';
+  }
+
+  const weyside = window.RENTAL_DATA.properties.find(property => property.name === 'Weyside, Catteshall Lane');
+  if (weyside) {
+    weyside.status = 'Available';
+    weyside.availabilityStatus = 'Available from 25 September 2026; exact Zoopla detail page verified 23 August 2026';
   }
 
   window.RENTAL_DATA.properties.sort((a, b) => (b.score - a.score) || ((a.distanceMiles ?? 999) - (b.distanceMiles ?? 999)) || (a.rent - b.rent));
