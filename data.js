@@ -1,17 +1,19 @@
 window.RENTAL_DATA = {
   targetCount: 50,
-  updated: "2026-08-23",
-  checkedAt: "2026-08-23T08:04:27+01:00",
-  headline: "I have searched far and wide for a house for Tess & Kevin and as of 23 August 2026, here are my suggestions...",
-  recommendation: "Sycamore Court remains the strongest overall fit at £1,150 pcm after its exact Zoopla page reopened cleanly today, with two double bedrooms, allocated off-road parking and additional on-street parking. Charterhouse Road remains the strongest premium Godalming option at £1,500 with a private south-facing patio, communal gardens and a private garage. East Street in Farnham remains a useful two-car backup at £1,500 with off-street parking and a private garage.",
+  updated: "2026-09-15",
+  checkedAt: "2026-09-15T08:13:46+01:00",
+  headline: "I have searched far and wide for a house for Tess & Kevin and as of 15 September 2026, here are my suggestions...",
+  recommendation: "Kevin's manual-priority Woking GU22 bungalow is live at £1,430 with a large private garden and its own driveway, making it the standout house-style watchlist option. In the core area, the new £1,500 Godalming ground-floor garden apartment is strong for location and outdoor space, while Charterhouse Road remains live at £1,500 and is now available immediately. East Street in Farnham has improved to £1,450 and retains off-street parking plus a private garage.",
   incomes: { kevin: 1730.97, tess: 1620 },
   changes: [
-    { type: "verified", title: "Sycamore Court remains live at £1,150", text: "The exact Zoopla detail page reopened successfully on 23 August and still shows £1,150 pcm, two double bedrooms, EPC C, Council Tax Band C, immediate availability, an allocated off-road parking space and additional on-street parking." },
-    { type: "verified", title: "Charterhouse Road remains live at £1,500", text: "The exact Zoopla detail page reopened successfully on 23 August and still shows £1,500 pcm, two bedrooms, a private south-facing patio, communal gardens, a private single garage, EPC E and availability from 29 August 2026." },
-    { type: "verified", title: "East Street remains live at £1,500", text: "The exact Rightmove detail page reopened successfully on 23 August and still shows £1,500 pcm, two double bedrooms, off-street parking, a private garage, communal gardens, Council Tax Band C and availability from 17 September 2026." },
-    { type: "rejected", title: "Weyside candidate failed the hard gate", text: "A £1,350 Weyside/Catteshall Lane two-bedroom result surfaced with off-street parking, EPC C and availability from 25 September, but its exact detail page failed when reopened during the current run. It was therefore excluded rather than added from discovery data." },
-    { type: "coverage", title: "Mandatory source coverage is incomplete today", text: "The saved OnTheMarket GU2 filtered URL again failed with a cache-miss/internal error on 23 August. Exact-page access was also uneven across some OpenRent, Rightmove, Zoopla, OnTheMarket and direct-agent results, so full pagination across every mandatory source and area could not be guaranteed and this run does not claim a comprehensive sweep." },
-    { type: "verified", title: "Three active records passed today's hard gate", text: "The active total remains intentionally three rather than padded with stale, unavailable or weakly verified listings. Ranks are contiguous, duplicate keys are unique and the loaded total matches this changes feed." }
+    { type: "added", title: "Manual-priority Woking bungalow is live at £1,430", text: "Kevin's supplied Rightmove URL 93043806 passed the exact-page gate on 15 September. It is a two-bedroom bungalow with a large private garden, allocated driveway/off-road parking and availability from 25 November 2026, so it has been added and kept prominent despite the £1,430 stretch-band rent." },
+    { type: "added", title: "New Godalming garden apartment at £1,500", text: "A newly listed two-double-bedroom ground-floor apartment in Godalming passed the exact Rightmove check. It has a private enclosed patio garden, EPC C, Council Tax Band D and residents-permit street parking, available from 16 November." },
+    { type: "added", title: "Fresh verified options materially expand the shortlist", text: "Moore Close in Tongham (£1,350), a Woking GU21 terrace with garage and private garden (£1,400), Hale Court in Farnham (£1,300), an Aldershot GU11 ground-floor flat (£1,250), Merlin Road in Farnborough (£1,400) and Anderson House in Farnham (£1,500) all passed exact-page checks and were added without padding." },
+    { type: "price", title: "East Street has dropped to £1,450", text: "The exact Rightmove page now shows £1,450 pcm, reduced on 1 September, while retaining two double bedrooms, off-street parking, a private garage, communal gardens and Council Tax Band C." },
+    { type: "verified", title: "Charterhouse Road is still live and now available immediately", text: "The exact Zoopla page reopened successfully on 15 September at £1,500 pcm and now states available immediately, with two bedrooms, private patio, communal gardens and a private single garage." },
+    { type: "removed", title: "Sycamore Court removed under the hard gate", text: "The previously used exact Zoopla URL could not be reliably reopened during this run, so Sycamore Court has been removed rather than carried forward on stale verification." },
+    { type: "coverage", title: "Mandatory source coverage is incomplete today", text: "The saved OnTheMarket GU2 filtered URL was blocked/disabled during the current run, so complete OnTheMarket GU2 pagination could not be guaranteed. Search discovery across mandatory areas was performed, but portal access limitations mean this run does not claim a comprehensive sweep of every accessible page across Rightmove, Zoopla, OpenRent, OnTheMarket and every direct agent." },
+    { type: "verified", title: "Ten active records passed today's hard gate", text: "The active total is intentionally 10 rather than padded with stale or weakly verified listings. Ranks are contiguous after scoring and duplicate keys are unique." }
   ],
   properties: []
 };
@@ -34,55 +36,51 @@ document.write('<script src="data/properties-14.js?v=20260816-0800"><\/script>')
 document.write('<script src="data/properties-15.js?v=20260817-0851"><\/script>');
 document.write('<script src="data/properties-16.js?v=20260818-0809"><\/script>');
 document.write('<script src="data/properties-17.js?v=20260822-0808"><\/script>');
+document.write('<script src="data/properties-18.js?v=20260915-0813"><\/script>');
 
 /* Current-run hard availability gate: only exact pages successfully reopened this run remain active. */
 {
-  const checkedAt = '2026-08-23T08:04:27+01:00';
+  const checkedAt = '2026-09-15T08:13:46+01:00';
   const verifiedNames = new Set([
-    'Sycamore Court, Long Gore',
+    'Bungalow, Woking GU22',
+    'Ground Floor Garden Apartment, Godalming',
+    'Charterhouse Road — Dean Court',
+    'Woking GU21 Terrace with Garage',
     'East Street',
-    'Charterhouse Road — Dean Court'
+    'Moore Close, Tongham',
+    'Hale Court, Fairview Gardens',
+    'Aldershot GU11 Ground Floor Flat',
+    'Merlin Road',
+    'Anderson House, St Georges Road'
   ]);
   window.RENTAL_DATA.properties = window.RENTAL_DATA.properties.filter(property => verifiedNames.has(property.name));
   window.RENTAL_DATA.properties.forEach(property => { property.verifiedAt = checkedAt; });
 
-  const sycamore = window.RENTAL_DATA.properties.find(property => property.name === 'Sycamore Court, Long Gore');
-  if (sycamore) {
-    sycamore.rent = 1150;
-    sycamore.score = 96;
-    sycamore.source = 'Zoopla';
-    sycamore.sourceType = 'portal';
-    sycamore.link = 'https://www.zoopla.co.uk/to-rent/details/67546637/';
-    sycamore.status = 'Available';
-    sycamore.availabilityStatus = 'Available immediately; exact Zoopla detail page live 23 August 2026';
-    sycamore.duplicateKey = 'sycamore-court-long-gore-godalming-gu7-1150';
-    sycamore.epc = 'C';
-    sycamore.councilBand = 'C';
-    sycamore.parking = 'Allocated off-road space plus additional on-street parking';
-    sycamore.parkingConfidence = 1;
-    sycamore.garden = 'No garden confirmed';
-    sycamore.outdoorConfidence = 0.2;
-    sycamore.label = 'Best overall fit';
-    sycamore.summary = 'At £1,150 with two double bedrooms, allocated off-road parking plus additional street parking and a core Godalming/Farncombe location, this is the strongest neutral-budget fit.';
-  }
-
   const eastStreet = window.RENTAL_DATA.properties.find(property => property.name === 'East Street');
   if (eastStreet) {
-    eastStreet.rent = 1500;
+    eastStreet.rent = 1450;
+    eastStreet.score = 90;
+    eastStreet.source = 'Rightmove';
+    eastStreet.sourceType = 'portal';
+    eastStreet.link = 'https://www.rightmove.co.uk/properties/91025910';
     eastStreet.status = 'Available';
-    eastStreet.availabilityStatus = 'Available from 17 September 2026; exact Rightmove detail page live 23 August 2026';
+    eastStreet.availabilityStatus = 'Available from 17 September 2026; exact Rightmove detail page live 15 September 2026';
+    eastStreet.duplicateKey = 'rightmove-91025910-east-street-farnham-gu9-1450';
     eastStreet.councilBand = 'C';
     eastStreet.parking = 'Off-street parking plus private garage';
     eastStreet.parkingConfidence = 1;
     eastStreet.garden = 'Communal gardens';
     eastStreet.outdoorConfidence = 1;
-    eastStreet.summary = 'Two double bedrooms, off-street parking plus a private garage and communal gardens make this a strong two-car backup.';
+    eastStreet.label = 'Strong two-car Farnham backup';
+    eastStreet.summary = 'Now £1,450 with two double bedrooms, off-street parking plus a private garage and communal gardens.';
   }
 
   const charterhouse = window.RENTAL_DATA.properties.find(property => property.name === 'Charterhouse Road — Dean Court');
   if (charterhouse) {
+    charterhouse.score = 92;
     charterhouse.status = 'Available';
-    charterhouse.availabilityStatus = 'Available from 29 August 2026; exact Zoopla detail page live 23 August 2026';
+    charterhouse.availabilityStatus = 'Available immediately; exact Zoopla detail page live 15 September 2026';
+    charterhouse.verifiedAt = checkedAt;
   }
 
   window.RENTAL_DATA.properties.sort((a, b) => (b.score - a.score) || ((a.distanceMiles ?? 999) - (b.distanceMiles ?? 999)) || (a.rent - b.rent));
