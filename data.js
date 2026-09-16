@@ -1,19 +1,17 @@
 window.RENTAL_DATA = {
   targetCount: 50,
-  updated: "2026-09-15",
-  checkedAt: "2026-09-15T08:13:46+01:00",
-  headline: "I have searched far and wide for a house for Tess & Kevin and as of 15 September 2026, here are my suggestions...",
-  recommendation: "Kevin's manual-priority Woking GU22 bungalow is live at £1,430 with a large private garden and its own driveway, making it the standout house-style watchlist option. In the core area, the new £1,500 Godalming ground-floor garden apartment is strong for location and outdoor space, while Charterhouse Road remains live at £1,500 and is now available immediately. East Street in Farnham has improved to £1,450 and retains off-street parking plus a private garage.",
+  updated: "2026-09-16",
+  checkedAt: "2026-09-16T08:00:00+01:00",
+  headline: "I have searched far and wide for a house for Tess & Kevin and as of 16 September 2026, here are my suggestions...",
+  recommendation: "Kevin's manual-priority Woking GU22 bungalow remains live at £1,430 with a large private garden and driveway. A newly listed £1,500 Lower Bourne/Farnham ground-floor apartment is today's strongest addition because it combines a garage, one allocated parking space, patio and communal gardens. The £1,500 Godalming garden apartment remains the strongest core-area option that passed today's exact-page gate.",
   incomes: { kevin: 1730.97, tess: 1620 },
   changes: [
-    { type: "added", title: "Manual-priority Woking bungalow is live at £1,430", text: "Kevin's supplied Rightmove URL 93043806 passed the exact-page gate on 15 September. It is a two-bedroom bungalow with a large private garden, allocated driveway/off-road parking and availability from 25 November 2026, so it has been added and kept prominent despite the £1,430 stretch-band rent." },
-    { type: "added", title: "New Godalming garden apartment at £1,500", text: "A newly listed two-double-bedroom ground-floor apartment in Godalming passed the exact Rightmove check. It has a private enclosed patio garden, EPC C, Council Tax Band D and residents-permit street parking, available from 16 November." },
-    { type: "added", title: "Fresh verified options materially expand the shortlist", text: "Moore Close in Tongham (£1,350), a Woking GU21 terrace with garage and private garden (£1,400), Hale Court in Farnham (£1,300), an Aldershot GU11 ground-floor flat (£1,250), Merlin Road in Farnborough (£1,400) and Anderson House in Farnham (£1,500) all passed exact-page checks and were added without padding." },
-    { type: "price", title: "East Street has dropped to £1,450", text: "The exact Rightmove page now shows £1,450 pcm, reduced on 1 September, while retaining two double bedrooms, off-street parking, a private garage, communal gardens and Council Tax Band C." },
-    { type: "verified", title: "Charterhouse Road is still live and now available immediately", text: "The exact Zoopla page reopened successfully on 15 September at £1,500 pcm and now states available immediately, with two bedrooms, private patio, communal gardens and a private single garage." },
-    { type: "removed", title: "Sycamore Court removed under the hard gate", text: "The previously used exact Zoopla URL could not be reliably reopened during this run, so Sycamore Court has been removed rather than carried forward on stale verification." },
-    { type: "coverage", title: "Mandatory source coverage is incomplete today", text: "The saved OnTheMarket GU2 filtered URL was blocked/disabled during the current run, so complete OnTheMarket GU2 pagination could not be guaranteed. Search discovery across mandatory areas was performed, but portal access limitations mean this run does not claim a comprehensive sweep of every accessible page across Rightmove, Zoopla, OpenRent, OnTheMarket and every direct agent." },
-    { type: "verified", title: "Ten active records passed today's hard gate", text: "The active total is intentionally 10 rather than padded with stale or weakly verified listings. Ranks are contiguous after scoring and duplicate keys are unique." }
+    { type: "added", title: "New Lower Bourne two-car option at £1,500", text: "43 Frensham Road, Farnham GU10 was added today after its exact Rightmove page passed the gate. It has two bedrooms, two bathrooms, a garage plus one allocated parking space, French doors to a patio and communal gardens, and is available from around 24 October." },
+    { type: "added", title: "Waverley Close added at £1,500", text: "This two-double-bedroom Farnham maisonette passed today's exact Rightmove check. It is available now, has EPC C, Council Tax Band D and a garage for parking, although no outdoor space or second parking bay is confirmed." },
+    { type: "verified", title: "Manual-priority Woking bungalow remains live", text: "Kevin's supplied Rightmove URL 93043806 passed the exact-page gate again on 16 September at £1,430. It remains a two-bedroom bungalow with a large private garden, driveway/off-road parking and availability from 25 November 2026." },
+    { type: "removed", title: "Charterhouse Road temporarily removed under the hard gate", text: "The previously used exact Zoopla URL could not be reliably reopened during this run, so Charterhouse Road is not being carried forward on yesterday's verification." },
+    { type: "coverage", title: "Mandatory source coverage remains incomplete", text: "The saved OnTheMarket GU2 filtered URL was blocked/disabled again on 16 September, so complete OnTheMarket GU2 pagination could not be guaranteed. Search discovery was run across mandatory areas and sources, but portal indexing/access limitations mean this run does not claim a fully comprehensive sweep of every result page." },
+    { type: "verified", title: "Eleven active records passed today's hard gate", text: "The active total is intentionally 11 rather than padded with stale or weakly verified listings. Ranks are contiguous after scoring and duplicate keys are unique." }
   ],
   properties: []
 };
@@ -37,21 +35,23 @@ document.write('<script src="data/properties-15.js?v=20260817-0851"><\/script>')
 document.write('<script src="data/properties-16.js?v=20260818-0809"><\/script>');
 document.write('<script src="data/properties-17.js?v=20260822-0808"><\/script>');
 document.write('<script src="data/properties-18.js?v=20260915-0813"><\/script>');
+document.write('<script src="data/properties-19.js?v=20260916-0800"><\/script>');
 
 /* Current-run hard availability gate: only exact pages successfully reopened this run remain active. */
 {
-  const checkedAt = '2026-09-15T08:13:46+01:00';
+  const checkedAt = '2026-09-16T08:00:00+01:00';
   const verifiedNames = new Set([
     'Bungalow, Woking GU22',
     'Ground Floor Garden Apartment, Godalming',
-    'Charterhouse Road — Dean Court',
     'Woking GU21 Terrace with Garage',
     'East Street',
     'Moore Close, Tongham',
     'Hale Court, Fairview Gardens',
     'Aldershot GU11 Ground Floor Flat',
     'Merlin Road',
-    'Anderson House, St Georges Road'
+    'Anderson House, St Georges Road',
+    '43 Frensham Road, Lower Bourne',
+    'Waverley Close, Farnham'
   ]);
   window.RENTAL_DATA.properties = window.RENTAL_DATA.properties.filter(property => verifiedNames.has(property.name));
   window.RENTAL_DATA.properties.forEach(property => { property.verifiedAt = checkedAt; });
@@ -64,7 +64,7 @@ document.write('<script src="data/properties-18.js?v=20260915-0813"><\/script>')
     eastStreet.sourceType = 'portal';
     eastStreet.link = 'https://www.rightmove.co.uk/properties/91025910';
     eastStreet.status = 'Available';
-    eastStreet.availabilityStatus = 'Available from 17 September 2026; exact Rightmove detail page live 15 September 2026';
+    eastStreet.availabilityStatus = 'Available from 17 September 2026; exact Rightmove detail page live 16 September 2026';
     eastStreet.duplicateKey = 'rightmove-91025910-east-street-farnham-gu9-1450';
     eastStreet.councilBand = 'C';
     eastStreet.parking = 'Off-street parking plus private garage';
@@ -72,15 +72,7 @@ document.write('<script src="data/properties-18.js?v=20260915-0813"><\/script>')
     eastStreet.garden = 'Communal gardens';
     eastStreet.outdoorConfidence = 1;
     eastStreet.label = 'Strong two-car Farnham backup';
-    eastStreet.summary = 'Now £1,450 with two double bedrooms, off-street parking plus a private garage and communal gardens.';
-  }
-
-  const charterhouse = window.RENTAL_DATA.properties.find(property => property.name === 'Charterhouse Road — Dean Court');
-  if (charterhouse) {
-    charterhouse.score = 92;
-    charterhouse.status = 'Available';
-    charterhouse.availabilityStatus = 'Available immediately; exact Zoopla detail page live 15 September 2026';
-    charterhouse.verifiedAt = checkedAt;
+    eastStreet.summary = '£1,450 with two double bedrooms, off-street parking plus a private garage and communal gardens.';
   }
 
   window.RENTAL_DATA.properties.sort((a, b) => (b.score - a.score) || ((a.distanceMiles ?? 999) - (b.distanceMiles ?? 999)) || (a.rent - b.rent));
