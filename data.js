@@ -1,17 +1,14 @@
 window.RENTAL_DATA = {
   targetCount: 50,
-  updated: "2026-09-16",
-  checkedAt: "2026-09-16T08:00:00+01:00",
-  headline: "I have searched far and wide for a house for Tess & Kevin and as of 16 September 2026, here are my suggestions...",
-  recommendation: "Kevin's manual-priority Woking GU22 bungalow remains live at £1,430 with a large private garden and driveway. A newly listed £1,500 Lower Bourne/Farnham ground-floor apartment is today's strongest addition because it combines a garage, one allocated parking space, patio and communal gardens. The £1,500 Godalming garden apartment remains the strongest core-area option that passed today's exact-page gate.",
+  updated: "2026-09-17",
+  checkedAt: "2026-09-17T08:01:50+01:00",
+  headline: "I have searched far and wide for a house for Tess & Kevin and as of 17 September 2026, here are my suggestions...",
+  recommendation: "Kevin's manual-priority Woking GU22 bungalow remains live at £1,430 with a large private garden and driveway. The £1,500 Godalming garden apartment remains the strongest core-area option, while the £1,400 Woking terrace offers a private rear garden and garage inside the comfortable rent ceiling.",
   incomes: { kevin: 1730.97, tess: 1620 },
   changes: [
-    { type: "added", title: "New Lower Bourne two-car option at £1,500", text: "43 Frensham Road, Farnham GU10 was added today after its exact Rightmove page passed the gate. It has two bedrooms, two bathrooms, a garage plus one allocated parking space, French doors to a patio and communal gardens, and is available from around 24 October." },
-    { type: "added", title: "Waverley Close added at £1,500", text: "This two-double-bedroom Farnham maisonette passed today's exact Rightmove check. It is available now, has EPC C, Council Tax Band D and a garage for parking, although no outdoor space or second parking bay is confirmed." },
-    { type: "verified", title: "Manual-priority Woking bungalow remains live", text: "Kevin's supplied Rightmove URL 93043806 passed the exact-page gate again on 16 September at £1,430. It remains a two-bedroom bungalow with a large private garden, driveway/off-road parking and availability from 25 November 2026." },
-    { type: "removed", title: "Charterhouse Road temporarily removed under the hard gate", text: "The previously used exact Zoopla URL could not be reliably reopened during this run, so Charterhouse Road is not being carried forward on yesterday's verification." },
-    { type: "coverage", title: "Mandatory source coverage remains incomplete", text: "The saved OnTheMarket GU2 filtered URL was blocked/disabled again on 16 September, so complete OnTheMarket GU2 pagination could not be guaranteed. Search discovery was run across mandatory areas and sources, but portal indexing/access limitations mean this run does not claim a fully comprehensive sweep of every result page." },
-    { type: "verified", title: "Eleven active records passed today's hard gate", text: "The active total is intentionally 11 rather than padded with stale or weakly verified listings. Ranks are contiguous after scoring and duplicate keys are unique." }
+    { type: "verified", title: "Manual-priority Woking bungalow remains live", text: "Kevin's supplied Rightmove URL 93043806 passed the exact-page gate again on 17 September at £1,430. It remains a two-bedroom bungalow with a large private garden, driveway/off-road parking and availability from 25 November 2026." },
+    { type: "verified", title: "Eleven active records passed today's hard gate", text: "All 11 carried-forward active records had their exact detail pages reopened successfully on 17 September. No stale records were retained and no search-snippet-only candidates were added." },
+    { type: "coverage", title: "Mandatory OnTheMarket GU2 coverage remains incomplete", text: "The saved OnTheMarket GU2 filtered URL returned a DisabledError again on 17 September, so complete GU2 pagination could not be guaranteed. Discovery across the mandatory areas and other accessible sources was still run, but this refresh does not claim a fully comprehensive OnTheMarket sweep." }
   ],
   properties: []
 };
@@ -39,7 +36,7 @@ document.write('<script src="data/properties-19.js?v=20260916-0800"><\/script>')
 
 /* Current-run hard availability gate: only exact pages successfully reopened this run remain active. */
 {
-  const checkedAt = '2026-09-16T08:00:00+01:00';
+  const checkedAt = '2026-09-17T08:01:50+01:00';
   const verifiedNames = new Set([
     'Bungalow, Woking GU22',
     'Ground Floor Garden Apartment, Godalming',
@@ -64,7 +61,7 @@ document.write('<script src="data/properties-19.js?v=20260916-0800"><\/script>')
     eastStreet.sourceType = 'portal';
     eastStreet.link = 'https://www.rightmove.co.uk/properties/91025910';
     eastStreet.status = 'Available';
-    eastStreet.availabilityStatus = 'Available from 17 September 2026; exact Rightmove detail page live 16 September 2026';
+    eastStreet.availabilityStatus = 'Available from 17 September 2026; exact Rightmove detail page live 17 September 2026';
     eastStreet.duplicateKey = 'rightmove-91025910-east-street-farnham-gu9-1450';
     eastStreet.councilBand = 'C';
     eastStreet.parking = 'Off-street parking plus private garage';
