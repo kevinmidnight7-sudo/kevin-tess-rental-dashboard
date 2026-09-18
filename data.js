@@ -1,14 +1,15 @@
 window.RENTAL_DATA = {
   targetCount: 50,
-  updated: "2026-09-17",
-  checkedAt: "2026-09-17T08:01:50+01:00",
-  headline: "I have searched far and wide for a house for Tess & Kevin and as of 17 September 2026, here are my suggestions...",
-  recommendation: "Kevin's manual-priority Woking GU22 bungalow remains live at £1,430 with a large private garden and driveway. The £1,500 Godalming garden apartment remains the strongest core-area option, while the £1,400 Woking terrace offers a private rear garden and garage inside the comfortable rent ceiling.",
+  updated: "2026-09-18",
+  checkedAt: "2026-09-18T07:54:42+01:00",
+  headline: "I have searched far and wide for a house for Tess & Kevin and as of 18 September 2026, here are my suggestions...",
+  recommendation: "The manual-priority Woking GU22 bungalow has been removed after its exact Rightmove URL returned 410 Gone. The £1,500 Godalming garden apartment is now the strongest core-area option, while the £1,400 Woking terrace offers a private rear garden and garage inside the comfortable rent ceiling. East Street, Farnham remains a strong two-car backup at £1,450 and is now available immediately.",
   incomes: { kevin: 1730.97, tess: 1620 },
   changes: [
-    { type: "verified", title: "Manual-priority Woking bungalow remains live", text: "Kevin's supplied Rightmove URL 93043806 passed the exact-page gate again on 17 September at £1,430. It remains a two-bedroom bungalow with a large private garden, driveway/off-road parking and availability from 25 November 2026." },
-    { type: "verified", title: "Eleven active records passed today's hard gate", text: "All 11 carried-forward active records had their exact detail pages reopened successfully on 17 September. No stale records were retained and no search-snippet-only candidates were added." },
-    { type: "coverage", title: "Mandatory OnTheMarket GU2 coverage remains incomplete", text: "The saved OnTheMarket GU2 filtered URL returned a DisabledError again on 17 September, so complete GU2 pagination could not be guaranteed. Discovery across the mandatory areas and other accessible sources was still run, but this refresh does not claim a fully comprehensive OnTheMarket sweep." }
+    { type: "removed", title: "Manual-priority Woking bungalow removed", text: "Kevin's supplied Rightmove URL 93043806 returned HTTP 410 Gone when its exact detail page was checked on 18 September. It has therefore been removed under the hard availability gate and should no longer be treated as an active candidate." },
+    { type: "availability", title: "East Street is now available immediately", text: "The exact Rightmove page for East Street, Farnham remains live at £1,450 and now states Available Now. It still confirms two double bedrooms, off-street parking, a private garage and communal gardens." },
+    { type: "verified", title: "Ten active records passed today's hard gate", text: "All 10 remaining carried-forward active records had their exact detail pages reopened successfully on 18 September. No stale records were retained and no search-snippet-only candidates were added." },
+    { type: "coverage", title: "Mandatory OnTheMarket GU2 coverage remains incomplete", text: "The saved OnTheMarket GU2 filtered URL returned a DisabledError again on 18 September, so complete GU2 pagination could not be guaranteed. Discovery across the mandatory areas and other accessible sources was still run, but this refresh does not claim a fully comprehensive OnTheMarket sweep." }
   ],
   properties: []
 };
@@ -36,9 +37,8 @@ document.write('<script src="data/properties-19.js?v=20260916-0800"><\/script>')
 
 /* Current-run hard availability gate: only exact pages successfully reopened this run remain active. */
 {
-  const checkedAt = '2026-09-17T08:01:50+01:00';
+  const checkedAt = '2026-09-18T07:54:42+01:00';
   const verifiedNames = new Set([
-    'Bungalow, Woking GU22',
     'Ground Floor Garden Apartment, Godalming',
     'Woking GU21 Terrace with Garage',
     'East Street',
@@ -61,7 +61,7 @@ document.write('<script src="data/properties-19.js?v=20260916-0800"><\/script>')
     eastStreet.sourceType = 'portal';
     eastStreet.link = 'https://www.rightmove.co.uk/properties/91025910';
     eastStreet.status = 'Available';
-    eastStreet.availabilityStatus = 'Available from 17 September 2026; exact Rightmove detail page live 17 September 2026';
+    eastStreet.availabilityStatus = 'Available now; exact Rightmove detail page live 18 September 2026';
     eastStreet.duplicateKey = 'rightmove-91025910-east-street-farnham-gu9-1450';
     eastStreet.councilBand = 'C';
     eastStreet.parking = 'Off-street parking plus private garage';
