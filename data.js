@@ -1,15 +1,15 @@
 window.RENTAL_DATA = {
   targetCount: 50,
-  updated: "2026-09-18",
-  checkedAt: "2026-09-18T07:54:42+01:00",
-  headline: "I have searched far and wide for a house for Tess & Kevin and as of 18 September 2026, here are my suggestions...",
-  recommendation: "The manual-priority Woking GU22 bungalow has been removed after its exact Rightmove URL returned 410 Gone. The £1,500 Godalming garden apartment is now the strongest core-area option, while the £1,400 Woking terrace offers a private rear garden and garage inside the comfortable rent ceiling. East Street, Farnham remains a strong two-car backup at £1,450 and is now available immediately.",
+  updated: "2026-09-19",
+  checkedAt: "2026-09-19T08:18:13+01:00",
+  headline: "I have searched far and wide for a house for Tess & Kevin and as of 19 September 2026, here are my suggestions...",
+  recommendation: "The £1,500 Godalming garden apartment remains the strongest core-area option. The £1,400 Woking terrace remains a strong house-and-garden choice inside the comfortable rent ceiling, while East Street, Farnham remains a useful two-car backup at £1,450. Victoria Road, Aldershot is a new £1,300 value backup, though it has no confirmed parking or outdoor space.",
   incomes: { kevin: 1730.97, tess: 1620 },
   changes: [
-    { type: "removed", title: "Manual-priority Woking bungalow removed", text: "Kevin's supplied Rightmove URL 93043806 returned HTTP 410 Gone when its exact detail page was checked on 18 September. It has therefore been removed under the hard availability gate and should no longer be treated as an active candidate." },
-    { type: "availability", title: "East Street is now available immediately", text: "The exact Rightmove page for East Street, Farnham remains live at £1,450 and now states Available Now. It still confirms two double bedrooms, off-street parking, a private garage and communal gardens." },
-    { type: "verified", title: "Ten active records passed today's hard gate", text: "All 10 remaining carried-forward active records had their exact detail pages reopened successfully on 18 September. No stale records were retained and no search-snippet-only candidates were added." },
-    { type: "coverage", title: "Mandatory OnTheMarket GU2 coverage remains incomplete", text: "The saved OnTheMarket GU2 filtered URL returned a DisabledError again on 18 September, so complete GU2 pagination could not be guaranteed. Discovery across the mandatory areas and other accessible sources was still run, but this refresh does not claim a fully comprehensive OnTheMarket sweep." }
+    { type: "added", title: "Victoria Road, Aldershot added at £1,300", text: "A newly listed two-bedroom, two-bathroom apartment passed the exact-page gate on 19 September. It has EPC C and Council Tax Band B, but no parking or outdoor space is confirmed, so it ranks as a lower-priority value backup." },
+    { type: "priority", title: "Manual-priority Woking bungalow remains dead", text: "Kevin's supplied Rightmove URL 93043806 again returned HTTP 410 Gone on 19 September, confirming it should remain off the active dashboard." },
+    { type: "verified", title: "Eleven active records passed today's hard gate", text: "All 10 carried-forward active records had their exact Rightmove detail pages reopened successfully on 19 September, and Victoria Road was added after its exact page passed. No stale or search-snippet-only records were retained." },
+    { type: "coverage", title: "Mandatory OnTheMarket GU2 coverage remains incomplete", text: "The saved OnTheMarket GU2 filtered URL returned a DisabledError again on 19 September, so complete GU2 pagination could not be guaranteed. Mandatory-area discovery was still run across accessible sources, but this refresh does not claim a fully comprehensive OnTheMarket sweep." }
   ],
   properties: []
 };
@@ -34,10 +34,11 @@ document.write('<script src="data/properties-16.js?v=20260818-0809"><\/script>')
 document.write('<script src="data/properties-17.js?v=20260822-0808"><\/script>');
 document.write('<script src="data/properties-18.js?v=20260915-0813"><\/script>');
 document.write('<script src="data/properties-19.js?v=20260916-0800"><\/script>');
+document.write('<script src="data/properties-20.js?v=20260919-0818"><\/script>');
 
 /* Current-run hard availability gate: only exact pages successfully reopened this run remain active. */
 {
-  const checkedAt = '2026-09-18T07:54:42+01:00';
+  const checkedAt = '2026-09-19T08:18:13+01:00';
   const verifiedNames = new Set([
     'Ground Floor Garden Apartment, Godalming',
     'Woking GU21 Terrace with Garage',
@@ -48,7 +49,8 @@ document.write('<script src="data/properties-19.js?v=20260916-0800"><\/script>')
     'Merlin Road',
     'Anderson House, St Georges Road',
     '43 Frensham Road, Lower Bourne',
-    'Waverley Close, Farnham'
+    'Waverley Close, Farnham',
+    'Victoria Road, Aldershot'
   ]);
   window.RENTAL_DATA.properties = window.RENTAL_DATA.properties.filter(property => verifiedNames.has(property.name));
   window.RENTAL_DATA.properties.forEach(property => { property.verifiedAt = checkedAt; });
@@ -61,7 +63,7 @@ document.write('<script src="data/properties-19.js?v=20260916-0800"><\/script>')
     eastStreet.sourceType = 'portal';
     eastStreet.link = 'https://www.rightmove.co.uk/properties/91025910';
     eastStreet.status = 'Available';
-    eastStreet.availabilityStatus = 'Available now; exact Rightmove detail page live 18 September 2026';
+    eastStreet.availabilityStatus = 'Available now; exact Rightmove detail page live 19 September 2026';
     eastStreet.duplicateKey = 'rightmove-91025910-east-street-farnham-gu9-1450';
     eastStreet.councilBand = 'C';
     eastStreet.parking = 'Off-street parking plus private garage';
