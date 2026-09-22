@@ -1,17 +1,16 @@
 window.RENTAL_DATA = {
   targetCount: 50,
-  updated: "2026-09-21",
-  checkedAt: "2026-09-21T07:30:21+01:00",
-  headline: "I have searched far and wide for a house for Tess & Kevin and as of 21 September 2026, here are my suggestions...",
-  recommendation: "Sycamore Drive in Ash Vale is today's standout new value option at £1,300, with two double bedrooms, a private enclosed garden, garage and residents parking. The £1,400 Woking terrace remains a strong house-and-garden choice. The previous £1,500 Godalming garden apartment has been removed after its exact page changed to LET AGREED.",
+  updated: "2026-09-22",
+  checkedAt: "2026-09-22T08:08:18+01:00",
+  headline: "I have searched far and wide for a house for Tess & Kevin and as of 22 September 2026, here are my suggestions...",
+  recommendation: "Charterhouse Road in Chapel Fields, Godalming is today's strongest new core-area find at £1,350, with two double bedrooms and a parking space. Sycamore Drive in Ash Vale remains the strongest practical house-and-garden value option at £1,300. The £1,400 Woking terrace has been removed after its exact page changed to LET AGREED.",
   incomes: { kevin: 1730.97, tess: 1620 },
   changes: [
-    { type: "added", title: "Sycamore Drive, Ash Vale added at £1,300", text: "The direct Romans page passed the exact-page gate on 21 September. This two-double-bedroom house has a private enclosed rear garden, a garage in a nearby block, residents parking, Council Tax Band C and EPC D." },
-    { type: "added", title: "Anchor Meadow and Queensmead added in Farnborough", text: "Two fresh £1,400-or-less Farnborough options passed exact-page checks. Anchor Meadow is a ground-floor two-double-bedroom flat with parking; Queensmead is £1,300 with two double bedrooms, a balcony and allocated parking." },
-    { type: "removed", title: "Godalming garden apartment removed — LET AGREED", text: "The exact Rightmove page for the £1,500 ground-floor Godalming garden apartment now explicitly says LET AGREED, so it was removed on 21 September." },
-    { type: "removed", title: "Merlin Road removed — LET AGREED", text: "The exact Rightmove page for Merlin Road, Farnborough at £1,400 now explicitly says LET AGREED, so it was removed on 21 September." },
-    { type: "priority", title: "Manual-priority Woking bungalow remains dead", text: "Kevin's supplied Rightmove URL 93043806 again returned HTTP 410 Gone on 21 September, confirming it remains off the active dashboard." },
-    { type: "coverage", title: "Mandatory OnTheMarket GU2 coverage remains incomplete", text: "The saved OnTheMarket GU2 filtered URL returned a DisabledError again on 21 September, so complete GU2 pagination could not be guaranteed. Mandatory-area discovery was run across accessible sources, but this refresh does not claim a fully comprehensive OnTheMarket sweep." }
+    { type: "added", title: "Charterhouse Road, Godalming added at £1,350", text: "A fresh Chapel Fields ground-floor apartment passed the exact-page gate on 22 September. It has two double bedrooms, a parking space and a core Godalming location, available from 19 November 2026." },
+    { type: "added", title: "Camp Road, Farnborough added at £1,400", text: "This two-bedroom apartment passed the exact-page gate on 22 September with one allocated parking space, EPC B and Council Tax Band C, available from 29 September 2026." },
+    { type: "removed", title: "Woking GU21 terrace removed — LET AGREED", text: "The exact Rightmove page for the £1,400 Woking terrace with garage and private garden now explicitly says LET AGREED, so it was removed on 22 September." },
+    { type: "priority", title: "Manual-priority Woking bungalow remains dead", text: "Kevin's supplied Rightmove URL 93043806 again returned HTTP 410 Gone on 22 September, confirming it remains off the active dashboard." },
+    { type: "coverage", title: "Mandatory OnTheMarket GU2 coverage remains incomplete", text: "The saved OnTheMarket GU2 filtered URL returned a DisabledError again on 22 September, so complete GU2 pagination could not be guaranteed. Discovery was run across accessible mandatory-area sources, but this refresh does not claim a fully comprehensive OnTheMarket sweep." }
   ],
   properties: []
 };
@@ -39,12 +38,12 @@ document.write('<script src="data/properties-19.js?v=20260916-0800"><\/script>')
 document.write('<script src="data/properties-20.js?v=20260919-0818"><\/script>');
 document.write('<script src="data/properties-21.js?v=20260920-0731"><\/script>');
 document.write('<script src="data/properties-22.js?v=20260921-0730"><\/script>');
+document.write('<script src="data/properties-23.js?v=20260922-0808"><\/script>');
 
 /* Current-run hard availability gate: only exact pages successfully reopened this run remain active. */
 {
-  const checkedAt = '2026-09-21T07:30:21+01:00';
+  const checkedAt = '2026-09-22T08:08:18+01:00';
   const verifiedNames = new Set([
-    'Woking GU21 Terrace with Garage',
     'East Street',
     'Moore Close, Tongham',
     'Hale Court, Fairview Gardens',
@@ -56,7 +55,9 @@ document.write('<script src="data/properties-22.js?v=20260921-0730"><\/script>')
     'Orchard House, Lambourne Way',
     'Sycamore Drive, Ash Vale',
     'Anchor Meadow, Farnborough',
-    'Queensmead, Farnborough'
+    'Queensmead, Farnborough',
+    'Charterhouse Road, Chapel Fields',
+    'Camp Road, Farnborough'
   ]);
   window.RENTAL_DATA.properties = window.RENTAL_DATA.properties.filter(property => verifiedNames.has(property.name));
   window.RENTAL_DATA.properties.forEach(property => { property.verifiedAt = checkedAt; });
@@ -69,7 +70,7 @@ document.write('<script src="data/properties-22.js?v=20260921-0730"><\/script>')
     eastStreet.sourceType = 'portal';
     eastStreet.link = 'https://www.rightmove.co.uk/properties/91025910';
     eastStreet.status = 'Available';
-    eastStreet.availabilityStatus = 'Available now; exact Rightmove detail page live 21 September 2026';
+    eastStreet.availabilityStatus = 'Available now; exact Rightmove detail page live 22 September 2026';
     eastStreet.duplicateKey = 'rightmove-91025910-east-street-farnham-gu9-1450';
     eastStreet.councilBand = 'C';
     eastStreet.parking = 'Off-street parking plus private garage';
