@@ -1,16 +1,16 @@
 window.RENTAL_DATA = {
   targetCount: 50,
-  updated: "2026-09-22",
-  checkedAt: "2026-09-22T08:08:18+01:00",
-  headline: "I have searched far and wide for a house for Tess & Kevin and as of 22 September 2026, here are my suggestions...",
-  recommendation: "Charterhouse Road in Chapel Fields, Godalming is today's strongest new core-area find at £1,350, with two double bedrooms and a parking space. Sycamore Drive in Ash Vale remains the strongest practical house-and-garden value option at £1,300. The £1,400 Woking terrace has been removed after its exact page changed to LET AGREED.",
+  updated: "2026-09-23",
+  checkedAt: "2026-09-23T07:32:11+01:00",
+  headline: "I have searched far and wide for a house for Tess & Kevin and as of 23 September 2026, here are my suggestions...",
+  recommendation: "Charterhouse Road in Chapel Fields, Godalming remains the strongest core-area value at £1,350. Sycamore Drive in Ash Vale remains the strongest practical house-and-garden option at £1,300. Camp Road, Farnborough has dropped from £1,400 to £1,300, and two freshly verified Aldershot options have been added.",
   incomes: { kevin: 1730.97, tess: 1620 },
   changes: [
-    { type: "added", title: "Charterhouse Road, Godalming added at £1,350", text: "A fresh Chapel Fields ground-floor apartment passed the exact-page gate on 22 September. It has two double bedrooms, a parking space and a core Godalming location, available from 19 November 2026." },
-    { type: "added", title: "Camp Road, Farnborough added at £1,400", text: "This two-bedroom apartment passed the exact-page gate on 22 September with one allocated parking space, EPC B and Council Tax Band C, available from 29 September 2026." },
-    { type: "removed", title: "Woking GU21 terrace removed — LET AGREED", text: "The exact Rightmove page for the £1,400 Woking terrace with garage and private garden now explicitly says LET AGREED, so it was removed on 22 September." },
-    { type: "priority", title: "Manual-priority Woking bungalow remains dead", text: "Kevin's supplied Rightmove URL 93043806 again returned HTTP 410 Gone on 22 September, confirming it remains off the active dashboard." },
-    { type: "coverage", title: "Mandatory OnTheMarket GU2 coverage remains incomplete", text: "The saved OnTheMarket GU2 filtered URL returned a DisabledError again on 22 September, so complete GU2 pagination could not be guaranteed. Discovery was run across accessible mandatory-area sources, but this refresh does not claim a fully comprehensive OnTheMarket sweep." }
+    { type: "price", title: "Camp Road, Farnborough dropped to £1,300", text: "The exact Rightmove page now shows £1,300 pcm, down £100 from yesterday's dashboard figure. It remains live with two bedrooms, allocated parking, EPC B and Council Tax Band C." },
+    { type: "added", title: "Alexandra Road, Aldershot added at £1,325", text: "The exact Romans page passed the hard gate on 23 September. This two-bedroom Victorian house has a private enclosed rear garden and on-street parking." },
+    { type: "added", title: "Ascot Court, Aldershot added at £1,225", text: "The exact Romans page passed the hard gate on 23 September. This ground-floor two-bedroom apartment has residents permit parking and is available at the end of November." },
+    { type: "priority", title: "Manual-priority Woking bungalow remains dead", text: "Kevin's supplied Rightmove URL 93043806 again returned HTTP 410 Gone on 23 September, confirming it remains off the active dashboard." },
+    { type: "coverage", title: "Mandatory OnTheMarket GU2 coverage remains incomplete", text: "The saved OnTheMarket GU2 filtered URL was blocked again on 23 September, so complete GU2 pagination could not be guaranteed. This refresh does not claim a fully comprehensive OnTheMarket sweep." }
   ],
   properties: []
 };
@@ -39,10 +39,11 @@ document.write('<script src="data/properties-20.js?v=20260919-0818"><\/script>')
 document.write('<script src="data/properties-21.js?v=20260920-0731"><\/script>');
 document.write('<script src="data/properties-22.js?v=20260921-0730"><\/script>');
 document.write('<script src="data/properties-23.js?v=20260922-0808"><\/script>');
+document.write('<script src="data/properties-24.js?v=20260923-0732"><\/script>');
 
 /* Current-run hard availability gate: only exact pages successfully reopened this run remain active. */
 {
-  const checkedAt = '2026-09-22T08:08:18+01:00';
+  const checkedAt = '2026-09-23T07:32:11+01:00';
   const verifiedNames = new Set([
     'East Street',
     'Moore Close, Tongham',
@@ -57,7 +58,9 @@ document.write('<script src="data/properties-23.js?v=20260922-0808"><\/script>')
     'Anchor Meadow, Farnborough',
     'Queensmead, Farnborough',
     'Charterhouse Road, Chapel Fields',
-    'Camp Road, Farnborough'
+    'Camp Road, Farnborough',
+    'Alexandra Road, Aldershot',
+    'Ascot Court, Aldershot'
   ]);
   window.RENTAL_DATA.properties = window.RENTAL_DATA.properties.filter(property => verifiedNames.has(property.name));
   window.RENTAL_DATA.properties.forEach(property => { property.verifiedAt = checkedAt; });
@@ -70,7 +73,7 @@ document.write('<script src="data/properties-23.js?v=20260922-0808"><\/script>')
     eastStreet.sourceType = 'portal';
     eastStreet.link = 'https://www.rightmove.co.uk/properties/91025910';
     eastStreet.status = 'Available';
-    eastStreet.availabilityStatus = 'Available now; exact Rightmove detail page live 22 September 2026';
+    eastStreet.availabilityStatus = 'Available now; exact Rightmove detail page live 23 September 2026';
     eastStreet.duplicateKey = 'rightmove-91025910-east-street-farnham-gu9-1450';
     eastStreet.councilBand = 'C';
     eastStreet.parking = 'Off-street parking plus private garage';
@@ -79,6 +82,25 @@ document.write('<script src="data/properties-23.js?v=20260922-0808"><\/script>')
     eastStreet.outdoorConfidence = 1;
     eastStreet.label = 'Strong two-car Farnham backup';
     eastStreet.summary = '£1,450 with two double bedrooms, off-street parking plus a private garage and communal gardens.';
+  }
+
+  const campRoad = window.RENTAL_DATA.properties.find(property => property.name === 'Camp Road, Farnborough');
+  if (campRoad) {
+    campRoad.rent = 1300;
+    campRoad.score = 86;
+    campRoad.duplicateKey = 'rightmove-93167253-camp-road-farnborough-gu14-1300';
+    campRoad.availabilityStatus = 'Available now; exact Rightmove detail page live 23 September 2026';
+    campRoad.summary = 'Now £1,300: a two-bedroom Farnborough apartment with allocated parking, EPC B and Council Tax Band C.';
+    campRoad.label = 'Price-drop Farnborough value';
+  }
+
+  const charterhouse = window.RENTAL_DATA.properties.find(property => property.name === 'Charterhouse Road, Chapel Fields');
+  if (charterhouse) {
+    charterhouse.epc = 'C';
+    charterhouse.councilBand = 'C';
+    charterhouse.parking = 'One allocated parking space';
+    charterhouse.parkingConfidence = 1;
+    charterhouse.availabilityStatus = 'Available from 19 November 2026; exact Rightmove detail page live 23 September 2026';
   }
 
   window.RENTAL_DATA.properties.sort((a, b) => (b.score - a.score) || ((a.distanceMiles ?? 999) - (b.distanceMiles ?? 999)) || (a.rent - b.rent));
